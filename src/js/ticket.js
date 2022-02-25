@@ -40,14 +40,15 @@ export default class task {
             </span>
         </div>`
 
+        const mark = task.getElementsByClassName('mark')[0]
         if (info.status === 1) {
-            const mark = task.getElementsByClassName('mark')[0]
             mark.classList.add('mark_done')
         }
 
         this.description = task.getElementsByClassName('description')[0]
         this.taskBody = task.getElementsByClassName('task_body')[0]
         this.taskBody.addEventListener('click', (e) => taskClick(e, info.id))
+        mark.addEventListener('click', () => this.markClick())
         this.element = task
     }
 
@@ -55,5 +56,10 @@ export default class task {
         this.description.classList.toggle('description_none')
     }
 
+    markClick() {
+        const mark = this.taskBody.getElementsByClassName('mark')[0]
+        mark.classList.toggle('mark_done')
+        this.info.status = !this.info.status
+    }
 }
 
