@@ -47,9 +47,11 @@ export default class task {
 
         this.description = task.getElementsByClassName('description')[0]
         this.taskBody = task.getElementsByClassName('task_body')[0]
-        this.taskBody.addEventListener('click', (e) => taskClick(e, info.id))
         mark.addEventListener('click', () => this.markClick())
         this.element = task
+
+        const title = task.getElementsByClassName('title')[0]
+        title.addEventListener('click', (e) => taskClick(e, info.id))
     }
 
     descriptionVisibility() {

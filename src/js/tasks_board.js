@@ -44,9 +44,7 @@ export default class tasksBoard {
 
     taskClick(e, id) {
         const task = this.tasks.find(element => element.id === id)
-        if (e.target === task.taskBody) {
-            task.descriptionVisibility()
-        }
+        task.descriptionVisibility()
     }
 
     buttonDeleteClick(e) {
